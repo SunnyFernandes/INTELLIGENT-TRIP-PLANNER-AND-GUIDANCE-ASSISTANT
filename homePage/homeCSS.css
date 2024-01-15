@@ -10,15 +10,17 @@
 body {
     min-height: 50vh;
     max-height: 100vh;
-    background: url('/images/top-view-traveling-items-arrangement.jpg');
+    /* background: url('/images/top-view-traveling-items-arrangement.jpg'); */
+    background: #52D3D8;
     background-size: cover;
     background-position: center;
 }
 
 .wel_pg {
-    margin-top: 25%;
+    margin-top: 21%;
     margin-left: 40%;
     text-align: center;
+    color: #200E3A;
 }
 
 /* .logsign {
@@ -29,11 +31,17 @@ body {
 
 .tagline {
     background-color: white;
+    background-color: #3887BE;
     margin-left: 100px;
     margin-right: 100px;
 }
 
 .titletext {
-    /* background-color: white; */
     font-size: 50px;
+}
+
+img {
+    position: absolute;
+    margin-top: 650px;
+    width: 650px;
 }

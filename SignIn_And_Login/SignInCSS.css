@@ -8,8 +8,8 @@
 }
 
 body{
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background-color: #52D3D8;
+    background: linear-gradient(to right, #e2e2e2, #52D3D8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,8 +48,8 @@ body{
 
 .container button{
     /* background-color: #512da8; */
-    background-color: #56a4e4;
-    color: #fff;
+    background-color: #52D3D8;
+    color: #200E3A;
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
@@ -63,7 +63,7 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    border-color: #200E3A;
 }
 
 .container form{
@@ -134,7 +134,7 @@ body{
 }
 
 .social-icons a{
-    border: 1px solid #ccc;
+    border: 1px solid #200E3A;
     border-radius: 20%;
     display: inline-flex;
     justify-content: center;
@@ -163,10 +163,10 @@ body{
 
 .toggle{
     /* background-color: #512da8; */
-    background-color: #a7cae6;
+    background-color: #52D3D8;
     height: 100%;
-    background: linear-gradient(to right, #a7cae6, #117fd8);
-    color: #fff;
+    background: linear-gradient(to right, #52D3D8, #3887BE);
+    color: #200E3A;
     position: relative;
     left: -100%;
     height: 100%;

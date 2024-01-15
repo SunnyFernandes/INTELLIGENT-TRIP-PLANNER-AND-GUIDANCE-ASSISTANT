@@ -15,7 +15,8 @@
 
 .logo {
     font-size: 32px;
-    color: #fff;
+    /* color: #fff; */
+    color: #200E3A;
     text-decoration: none;
     font-weight: 700;
 }
@@ -23,7 +24,8 @@
 .navbar a {
     position: relative;
     font-size: 18px;
-    color: #fff;
+    /* color: #fff; */
+    color: #200E3A;
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
@@ -36,7 +38,8 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #fff;
+    /* background: #fff; */
+    background: #200E3A;
     transition: .3s;
 }
 

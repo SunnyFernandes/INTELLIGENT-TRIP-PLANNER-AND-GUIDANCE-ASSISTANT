@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+    text-transform: uppercase;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  input,
+  output {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="date"],
+  input[type="number"],
+  input[type="range"] {
+    width: calc(50% - 22px);
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  input[type="range"] {
+    margin-bottom: 5px;
+  }
+  
+  input[type="submit"] {
+    background-color: #3498db; /* Blue color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  /* Styling for the range input */
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  input[type="range"]:hover {
+    opacity: 1;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db; /* Blue color */
+    cursor: pointer;
+  }
+  
+  /* Corrected comment syntax */
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db; /* Blue color */
+    cursor: pointer;
+  }
+  
+  /* Styling for the budget value display */
+  output {
+    display: inline-block;
+    background-color: #3498db; /* Blue color */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  /* Additional styling to place elements side by side */
+  label[for="source"],
+  label[for="destination"],
+  label[for="startDate"],
+  label[for="endDate"] {
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+    margin-right: 5%;
+  }
+  
+  input[type="text"],
+  input[type="date"] {
+    width: 45%;
+    display: inline-block;
+  }
+  

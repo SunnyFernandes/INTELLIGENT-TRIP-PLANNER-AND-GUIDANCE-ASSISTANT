@@ -1,1 +1,53 @@
-div.container
+div.container {
+    background-color: gray;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: url('/images/bascilica.webp');
+    background-position: center;
+}
+
+div.container2 {
+    background-color: gray;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: url('/images/beautiful_cloudy_blue_sky_above_blue_and_brown_body_of_water_during_daytime_hd_beach.jpg');
+    background-position: center;
+}
+
+div.container3 {
+    background-color: gray;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: url('/images/pexels-magda-ehlers-1631065.jpg');
+    background-position: center;
+}
+
+div.container4 {
+    background-color: gray;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: url('/images/1920x1080-hd-beach-khfbqt2io95uf0zy.jpg');
+    background-position: center;
+}
+
+.pack-name {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.rating{
+    position: flex;
+    padding-left: 10px;
+    margin-top: 80px;
+    text-align: left;
+}
+
+.price{
+    /* display: relative; */
+    position: flex;
+    padding-left: 10px;
+}

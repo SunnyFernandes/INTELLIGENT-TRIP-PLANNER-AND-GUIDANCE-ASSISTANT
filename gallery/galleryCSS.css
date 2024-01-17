@@ -11,7 +11,7 @@ body {
   min-height: 50vh;
   max-height: 100vh;
   /* background: url('/images/top-view-traveling-items-arrangement.jpg'); */
-  background: #52D3D8;
+  background: #52D3D8; 
   background-size: cover;
   background-position: center;
 }

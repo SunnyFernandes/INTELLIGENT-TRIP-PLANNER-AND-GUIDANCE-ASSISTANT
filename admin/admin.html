@@ -1,30 +1,68 @@
+
+html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Buddy | Admin</title>
-    <link rel="stylesheet" href="./adminCSS.css">
+	<title>Admin Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="adminCSS.css">
 </head>
 <body>
-    <div class="sidebar">
-        <a class="active" href="#dashboard">Dashboard</a>
-        <a href="#customers">Customers</a>
-        <a href="#orders">Orders</a>
-        <a href="#analytics">Analytics</a>
-      </div>
-
-      <div class="content">
-        <div class="profit-content">
-            <h3>Profit</h3>
-        </div>
-        <div class="net-content">
-            <h3>Net Profit</h3>
-        </div>
-        <div class="trips-content">
-            <h3>Total Trips</h3>
-        </div>
-        Dashboard content will come over here
-      </div>
+	<header>
+		<h1>Admin Dashboard</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Users</a></li>
+				<li><a href="#">Entries</a></li>
+				<li><a href="#">Searches</a></li>
+				<li><a href="#">Trip Planner</a></li>
+				<li><a href="#">Guidance System</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<h2>Users</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>John Doe</td>
+						<td>john.doe@example.com</td>
+						<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Jane Doe</td>
+						<td>jane.doe@example.com</td>
+						<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section>
+			<h2>Entries</h2>
+			<!-- Entry list goes here -->
+		</section>
+		<section>
+			<h2>Searches</h2>
+			<!-- Search list goes here -->
+		</section>
+		<section>
+			<h2>Trip Planner</h2>
+			<!-- Trip planner goes here -->
+		</section>
+		<section>
+			<h2>Guidance System</h2>
+			<!-- Guidance system goes here -->
+		</section>
+	</main>
 </body>
 </html>

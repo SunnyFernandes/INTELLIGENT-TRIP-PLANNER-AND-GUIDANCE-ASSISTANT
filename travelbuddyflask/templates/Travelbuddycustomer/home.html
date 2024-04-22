@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" href="assets/css/styles.css" /> -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+<script src="assets/js/script.js"></script>
+<title>Travel Buddy</title>
+<style>
+        /* Style for the profile picture */
+        .profile-info {
+            position: relative;
+            display: none; /* Initially hide */
+            cursor: pointer;
+        }
+        
+        .profile-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Show the profile info and dropdown menu when logged in */
+        /* {% if session['logged_in'] == True %} */
+            .profile-info {
+                display: inline-block;
+            }
+        /* {% endif %} */
+        
+        /* Show the dropdown menu on hover */
+        .profile-info:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+  </head>
+  <body>
+  <header>
+      <nav class="navbar">
+        <div class="logo">Travel Buddy</div>
+        <div class="menu">
+          <a href="#hero">Home</a>
+          <!-- <a href="#destinations">Destinations</a> -->
+          <a href="#recommendations">Recommendations</a>
+          <a href="{{ url_for('itinerarycreate') }}">Create Itinerary</a>
+          <a href="#contact">Contact</a>
+          {% if session['logged_in'] != True %}
+          <a href="{{ url_for('signup') }}" class="sign-in-link">Sign Up</a> <!-- Hide this link when logged in -->
+          {% elif session['logged_in'] == True and users %}
+                    <div class="profile-info">
+                        <img src="{{ url_for('static', filename='images/g1new.jpg') }}" alt="Profile Picture">
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('profile_edit') }}">Profile</a>
+                            <!-- <p style="color: black;">{{ users[1] }}</p> -->
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </div>
+                    </div>
+          {% else %}
+                    <a href="{{ url_for('logout') }}">Admin/Vendor Logged In click Here To Log Out</a>
+          {% endif %}
+
+        </div>
+      </nav>
+    </header>
+  <main>
+    <section id="hero">
+        <h1>Your Explore the World with Your Ultimate Travel Buddy - Your Passport to Adventure!</h1>
+        <p>Discover the world with itineraries crafted just for you.</p>
+        <!-- <a href="#itineraries" class="btn-primary">Get Started</a> -->
+      </section>
+      <!-- <section id="destinations" class="container">
+        <h2>Popular Destinations</h2>
+        <div class="destination-cards">
+         
+          <div class="destination-card">
+            <img src="./assets/images/destination.jpg" alt="Destination 1">
+            <h3>Destination 1</h3>
+            <p>Description of destination 1.</p>
+          </div>
+          <div class="destination-card">
+            <img src="./assets/images/destination.jpg" alt="Destination 2">
+            <h3>Destination 2</h3>
+            <p>Description of destination 2.</p>
+          </div>
+          <div class="destination-card">
+            <img src="./assets/images/destination.jpg" alt="Destination 3">
+            <h3>Destination 3</h3>
+            <p>Description of destination 3.</p>
+          </div>
+        </div>
+      </section> -->
+      <section id="recommendations" class="container">
+        <h2>Recommendations</h2>
+        <div class="recommendation-cards">
+          {% for recommendation in recommendations %}
+          <div class="recommendation-card">
+            <img src="{{ url_for('static', filename='images/g1new.jpg') }}" alt="Recommendation 1">
+            <h3>{{  recommendation[1] }}</h3>
+            <p class="description">{{  recommendation[3] }}</p> 
+            {% if session['logged_in'] == True%}
+            <a href="#" class="btn-book">Book Now {{ recommendation[5]}}</a>
+            {% else %}
+            <p class="btn-book">Please Signin/Login To View and Book Your trip</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    <section id="itineraries" class="container">
+      <h2>Create Your Itinerary</h2>
+     <form action="/submit" method="post">
+       
+        <label for="travel-type">Travel Type:</label>
+        <select id="travel_type" name="travel_type" required>
+            <option value="" disabled selected>Select</option>a
+            <option value="Solo">Solo</option>
+            <option value="Couple">Couple</option>
+            <option value="Family">Family</option>
+            <option value="Group">Group</option>
+        </select>
+
+        <label for="travel-type">Trip Type:</label>
+        <select id="trip_type" name="trip_type" required>
+            <option value="" disabled selected>Select</option>a
+            <option value="Chill ( 1-2 activities)">Chill ( 1-2 activities)</option>
+            <option value="Touristy ( 2-3 activities)">Touristy ( 2-3 activities)</option>
+            <option value="Packed ( 3 or more activities)">Packed ( 3 or more activities)</option>
+        </select>
+        
+
+    
+        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
+            <div>
+                <label for="arrival-date">Start Date:</label>
+                <input type="date" id="arrival_date" name="arrival_date" required>
+                <div id="arrival-date-error" class="error-message"></div>
+            </div>
+            <div>
+                <label for="departure-date">End Date:</label>
+                <input type="date" id="departure_date" name="departure_date" required>
+                <div id="departure-date-error" class="error-message"></div>
+            </div>
+        </div>
+
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
+            <div>
+                <label for="source">Source:</label>
+                <input type="text" id="source" name="source" required>
+                <div id="source-error" class="error-message"></div>
+            </div>
+            <div>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+                <div id="destination-error" class="error-message"></div>
+            </div>
+        </div>
+
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
+            <div>
+                <label for="ageGroup">Age Group:</label>
+                <select id="ageGroup" name="ageGroup" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="0-17">0 - 17</option>
+                    <option value="18-24">18 to 24</option>
+                    <option value="25-34">25 to 34</option>
+                    <option value="35-44">35 to 44</option>
+                    <option value="45-54">45 to 54</option>
+                    <option value="55-64">55 to 64</option>
+                    <option value="65 or older">65 And Above</option>
+                </select>
+            </div>
+            <div>
+                <label for="budget">Budget (in Rs):</label>
+                <select id="budget" name="budget" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="10000">Less than 10000</option>
+                    <option value="20000">10000 - 20000</option>
+                    <option value="40000">20000 - 40000</option>
+                    <option value="60000">40000 - 60000</option>
+                    <option value="80000">60000 - 80000</option>
+                    <option value="100000">80000 - 100000</option>
+                    <option value="100000000">More than ₹100,000</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="numTravelers">Number of Travelers:</label>
+        <input type="number" id="numTravelers" name="numTravelers" min="1" required>
+        <div id="numTravelers-error" class="error-message"></div>
+        
+    
+    <!-- <button type="submit" value="Submit">Submit</button> -->
+    {% if session['logged_in'] == True %}
+    <input type="submit" value="Submit" enable>
+    {% else %}
+    <input type="submit" value="submit" disabled>
+    {% endif %}
+      </form>
+    </section>
+    <section id="contact" class="container">
+      <h2>Contact Us</h2>
+    
+      <p>If you have any questions or inquiries, please fill out the form below:</p>
+      <form id="contact-form">
+        <label for="contact-name">Name:</label>
+        <input type="text" id="contact-name" name="contact-name" required>
+        <label for="contact-email">Email:</label>
+        <input type="email" id="contact-email" name="contact-email" required>
+        <label for="contact-message">Message:</label>
+        <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+</main>
+<footer>
+  <p>© 2024 Travel Buddy. All rights reserved.</p>
+</footer>
+</body>
+</html>

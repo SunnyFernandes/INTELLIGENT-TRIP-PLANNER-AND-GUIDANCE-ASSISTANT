@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="./assets/css/profile_edit.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+      <div class="logo">Travel Buddy</div>
+      <div class="menu">
+        <a href="index.html">Back</a>
+       
+       
+      </div>
+    </nav>
+  </header>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form action="update_profile.php" method="POST">
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" placeholder=" your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <label>
+                    <span>Gender</span>
+                    <select name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">other</option>
+                    </select>
+                </label><br>
+            <div class="form-group">
+                <label for="password">Old Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your old password">
+            </div>
+            <div class="form-group">
+                <label for="cpassword"> New Password:</label>
+                <input type="password" id="cpassword" name="cpassword" placeholder="Enter your new password">
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+    <footer>
+    <footer>
+        <p>© 2024 Travel Buddy. All rights reserved.</p>
+      </footer>
+      
+  </footer>
+</body>
+</html>
+
